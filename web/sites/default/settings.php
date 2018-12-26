@@ -753,7 +753,28 @@ $settings['file_scan_ignore_directories'] = [
  *
  * Keep this code block at the end of this file to take full effect.
  */
-#
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
    include $app_root . '/' . $site_path . '/settings.local.php';
+}
+
+/**
+ * Load andock override configuration, if available.
+ */
+if (file_exists(__DIR__ . '/settings.andock.php')) {
+  include __DIR__ . '/settings.andock.php';
+}
+
+// Reverse proxy configuration (Docksal vhost-proxy)
+if (PHP_SAPI !== 'cli') {
+  $settings['reverse_proxy'] = TRUE;
+  $settings['reverse_proxy_addresses'] = array($_SERVER['REMOTE_ADDR']);
+  // HTTPS behind reverse-proxy
+  if (
+    isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' &&
+    !empty($settings['reverse_proxy']) && in_array($_SERVER['REMOTE_ADDR'], $settings['reverse_proxy_addresses'])
+  ) {
+    $_SERVER['HTTPS'] = 'on';
+    // This is hardcoded because there is no header specifying the original port.
+    $_SERVER['SERVER_PORT'] = 443;
+  }
 }
