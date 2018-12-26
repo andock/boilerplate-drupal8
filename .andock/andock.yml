@@ -14,7 +14,7 @@ virtual_hosts:
     container: varnish
 
 ## The git checkout repository.
-git_repository_path: https://github.com/andock/boilerplate-drupal8-composer.git
+git_repository_path: https://github.com/andock/demo-drupal.git
 
 ## Mounts describe writeable persistent volumes in the docker container.
 ## Mounts are linked via volumes: into the docker container.
