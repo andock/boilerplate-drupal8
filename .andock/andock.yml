@@ -29,7 +29,7 @@ letsencrypt_enable: true
 letsencrypt_acme_directory: "{{ letsencrypt_acme_directory_staging }}"
 
 ## ansible build hooks.
-## The hooks that will be triggered when the environment is builded/initialized/updated.
+## The hooks that will be triggered when the environment is built/initialized/updated.
 hook_build_tasks: "{{project_path}}/.andock/hooks/build_tasks.yml"
 hook_init_tasks: "{{project_path}}/.andock/hooks/init_tasks.yml"
 hook_update_tasks: "{{project_path}}/.andock/hooks/update_tasks.yml"
