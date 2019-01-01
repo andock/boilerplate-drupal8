@@ -14,6 +14,7 @@ before_script:
 - . andock ssh-add "$SSH_PRIVATE_KEY"
 - andock connect "default" "dev.andock.ci"
 
+
 script:
 - andock build deploy
 - andock environment deploy
