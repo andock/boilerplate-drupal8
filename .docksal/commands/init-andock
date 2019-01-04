@@ -32,7 +32,9 @@ site_install ()
 	if [[ "$BRANCH" == "master" ]]; then
 	    echo "Create site"
 	    drush sql-create -y
-    	php -d sendmail_path=/bin/true /usr/local/bin/drush site-install demo_umami -y --site-name='My Drupal 8 Site'
+    	drush site-install demo_umami -y \
+    	install_configure_form.enable_update_status_module=NULL \
+    	--site-name='My Drupal 8 Site'
 	else
 	    echo "Create site from demo-drupal.master"
 	    # There is a bug drush sql-sync in drush 8.1.17

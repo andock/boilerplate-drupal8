@@ -61,8 +61,9 @@ site_install ()
 {
 	cd $DOCROOT_PATH
 
-	# We disable email sending here so site-install does not return an error
-	php -d sendmail_path=/bin/true /usr/local/bin/drush site-install demo_umami -y --site-name='My Drupal 8 Site'
+	drush site-install demo_umami -y \
+    install_configure_form.enable_update_status_module=NULL \
+	--site-name='My Drupal 8 Site'
 }
 
 composer_install ()
