@@ -15,5 +15,6 @@ before_script:
 
 
 script:
-- andock build deploy
-- andock environment deploy
+# Uncomment this!
+#- andock build deploy
+#- andock environment deploy
