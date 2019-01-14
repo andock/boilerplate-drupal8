@@ -26,7 +26,7 @@ mounts:
 ## Uncomment to enable let's encrypt certificate generation.
 letsencrypt_enable: true
 ## Uncomment for production letsencrypt certificates.
-letsencrypt_acme_directory: "{{ letsencrypt_acme_directory_staging }}"
+letsencrypt_directory: "{{ letsencrypt_directory_staging }}"
 
 ## ansible build hooks.
 ## The hooks that will be triggered when the environment is built/initialized/updated.
