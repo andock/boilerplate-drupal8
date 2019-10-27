@@ -5,5 +5,5 @@ $aliases['master'] = array (
 'uri' => 'http://master.demo-drupal.dev.andock.ci',
 'remote-user' => 'master-mp4yqom',
 'remote-host' => 'dev.andock.ci',
-'ssh-options' => '-p 2222'
+'ssh-options' => '-p 2222 -o ConnectTimeout=300'
 );
